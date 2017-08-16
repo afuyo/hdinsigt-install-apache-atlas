@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Import the helper method module.
 wget -O /tmp/HDInsightUtilities-v01.sh -q https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh && source /tmp/HDInsightUtilities-v01.sh && rm -f /tmp/HDInsightUtilities-v01.sh
 
@@ -20,10 +22,9 @@ sudo tar -zxvf solr-5.2.1.tgz
 #Let's get zkhosts
 
 ZKHOSTS=`grep -R zookeeper /etc/hadoop/conf/yarn-site.xml | grep 2181 | grep -oPm1 "(?<=<value>)[^<]+"`
-export ZKHOSTS=ZKHOSTS
 if [ -z "$ZKHOSTS" ]; then
     ZKHOSTS=`grep -R zk /etc/hadoop/conf/yarn-site.xml | grep 2181 | grep -oPm1 "(?<=<value>)[^<]+"`  
-    export ZKHOSTS=ZKHOSTS	
+	
 fi
 
 #remove temporary file download
@@ -44,7 +45,7 @@ sudo ./bin/solr create -c fulltext_index -d $SOLR_CONF -shards 1 -replicationFac
 
 #EDIT atlas-application.properties
 
-CONFIG="/usr/hdp/current/apache-atlas-0.9-incubating-SNAPSHOT/conf/atlas-application1.properties"
+CONFIG="/usr/hdp/current/apache-atlas-0.9-incubating-SNAPSHOT/conf/atlas-application.properties"
 
 # Use this to set the new config value, needs 2 parameters. 
 # You could check that $1 and $1 is set, but I am lazy
