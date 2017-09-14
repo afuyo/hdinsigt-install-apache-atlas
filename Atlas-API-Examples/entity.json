@@ -1,0 +1,24 @@
+{
+ "jsonClass":"org.apache.atlas.typesystem.json.InstanceSerialization$_Reference",
+ "id":{
+ "jsonClass":"org.apache.atlas.typesystem.json.InstanceSerialization$_Id",
+ "id":"-1566683608564093000",
+ "version":0,
+ "typeName":"file_repo",
+ "state":"ACTIVE"
+ },
+ "typeName":"file_repo",
+ "values":{
+ "qualifiedName":"TrygDL",
+ "description":"Tryg data lake",
+ "repo_name":"Tryg123",
+ "name":"Tryg123",
+ "owner":"artur"
+ },
+ "traitNames":[
+
+ ],
+ "traits":{
+
+ }
+}
